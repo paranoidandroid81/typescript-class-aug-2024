@@ -24,3 +24,23 @@ export const Err = <E>(error?: E): Result<never, E> => ({
   ok: false,
   error,
 });
+
+export type Some<T> = {
+  tag: "Some";
+  value: T;
+};
+
+export type None = {
+  tag: "None";
+};
+
+export const HasSome = <T>(value: T): Option<T> => ({
+  tag: "Some",
+  value,
+});
+
+export const HasNone = (): None => ({
+  tag: "None",
+});
+
+export type Option<T> = Some<T> | None;

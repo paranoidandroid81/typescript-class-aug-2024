@@ -68,6 +68,8 @@ describe("Shipping Orders", () => {
       .filter(isUndeliveredOrder)
       .map(calculateExpectedDeliveryDate);
 
+    const otherList = orders.filter((o) => o.status !== "delivered");
+
     console.log(deliveryDates);
   });
 });
